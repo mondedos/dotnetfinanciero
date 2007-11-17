@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EcuacionesLib
 {
-    public class Termino
+    public class Termino:ICloneable
     {
         double _multiplicando;
         double _exponente;
@@ -63,9 +63,23 @@ namespace EcuacionesLib
             }
         }
 
+
         //public static Termino operator+(Termino t1,Termino t2){
         //    Termino t = new Termino(t1._multiplicando + t2._multiplicando, t1._exponente);
         //    return t;
         //}
+
+        #region ICloneable Members
+
+        object ICloneable.Clone()
+        {
+            Termino clon = new Termino();
+
+            clon._exponente = _exponente;
+            clon._multiplicando = _multiplicando;
+            return clon;
+        }
+
+        #endregion
     }
 }
