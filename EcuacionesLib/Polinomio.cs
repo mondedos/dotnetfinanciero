@@ -26,9 +26,68 @@ namespace EcuacionesLib
             return sb.ToString();
         }
 
+        public override bool Equals(object obj)
+        {
+            try
+            {
+                Polinomio p = (Polinomio)obj;
+
+                int total = _listaTerminos.Count;
+
+                bool iguales = p._listaTerminos.Count == total;
+
+                if (iguales)
+                {
+                    foreach (Termino t in _listaTerminos.Values)
+                    {
+                        iguales = iguales && t.Equals(p._listaTerminos[t.Exponente]);
+                    }
+                }
+
+                return iguales;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+        
+        /// <summary>
+        /// Encuentra la raiz aplicando el método de Newton
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="p"></param>
+        /// <param name="p_derivada"></param>
+        /// <returns></returns>
+        public static double Newton(double a, double b, IPolinomio p)
+        {
+            IPolinomio p_derivada_primera = (IPolinomio)p.Clone(),p_derivada_segunda;
+            p_derivada_primera.Derivar();
+            p_derivada_segunda = (IPolinomio)p_derivada_primera.Clone();
+            p_derivada_segunda.Derivar();
+
+            double x_o ;
+            double xn ;
+
+            xn = b;
+            if (p.Resolver(a) * p_derivada_segunda.Resolver(a) > 0)
+            {
+                xn = a;
+            }
+            x_o = xn + 1;
+
+            while (xn != x_o)
+            {
+                x_o = xn;
+                xn = x_o - p.Resolver(x_o) / p_derivada_primera.Resolver(x_o);
+            }
+            return xn;
+        }
+
         #region IPolinomio Members
 
-        public void Insertar(Termino t)
+         void IPolinomio.Insertar(Termino t)
         {
             double exponente = t.Exponente;
 
@@ -43,7 +102,7 @@ namespace EcuacionesLib
             }
         }
 
-        public void Intergrar()
+         void IPolinomio.Intergrar()
         {
             SortedList<double, Termino> aux = new SortedList<double, Termino>();
             foreach (Termino x in _listaTerminos.Values)
@@ -54,7 +113,7 @@ namespace EcuacionesLib
             _listaTerminos = aux;
         }
 
-        public void Derivar()
+         void IPolinomio.Derivar()
         {
             SortedList<double, Termino> aux = new SortedList<double, Termino>();
             foreach (Termino x in _listaTerminos.Values)
@@ -65,12 +124,8 @@ namespace EcuacionesLib
             _listaTerminos = aux;
         }
 
-        #endregion
 
-        #region IPolinomio Members
-
-
-        public double Resolver(double x)
+         double IPolinomio.Resolver(double x)
         {
             double v, ultimoExp;
             IList<Termino> lista = _listaTerminos.Values;
@@ -94,6 +149,23 @@ namespace EcuacionesLib
             }
             v = v * Math.Pow(x, ultimoExp);
             return v;
+        }
+
+        #endregion
+
+        #region ICloneable Members
+
+        object ICloneable.Clone()
+        {
+            Polinomio clon = new Polinomio();
+            clon._listaTerminos = new SortedList<double, Termino>();
+
+            foreach (Termino t in _listaTerminos.Values)
+            {
+                clon._listaTerminos.Add(t.Exponente, (Termino)((ICloneable)t).Clone());
+            }
+
+            return clon;
         }
 
         #endregion

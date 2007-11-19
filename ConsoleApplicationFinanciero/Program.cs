@@ -9,23 +9,21 @@ namespace ConsoleApplicationFinanciero
     {
         static void Main(string[] args)
         {
-            Termino t1 = new Termino(2, 2);
-            Termino t2 = new Termino(3, 3);
-            Termino t3 = new Termino(3, 0);
+                        Termino t1 = new Termino(1, 4);
+            Termino t2 = new Termino(-1, 3);
+            Termino t3 = new Termino(-3, 2);
+            Termino t4 = new Termino(-4, 1);
+            Termino t5 = new Termino(-2, 0);
 
-            Polinomio p = new Polinomio();
-            p.Insertar(t1);
-            p.Insertar(t2);
-            p.Insertar(t3);
+            IPolinomio p1 = new EcuacionesLib.Polinomio();
+            p1.Insertar(t1);
+            p1.Insertar(t2);
+            p1.Insertar(t3);
 
-            System.Console.WriteLine(p);
-            System.Console.WriteLine(p.Resolver(2));
-            p.Derivar();
-            System.Console.WriteLine(p);
-            System.Console.WriteLine(p.Resolver(2));
-            p.Intergrar();
-            System.Console.WriteLine(p);
-            System.Console.WriteLine(p.Resolver(2));
+            p1.Insertar(t4);
+            p1.Insertar(t5);
+            //p2.Insertar(t3);
+            System.Console.WriteLine(EcuacionesLib.Polinomio.Newton(2, 3, p1));
 
             System.Console.ReadLine();
         }

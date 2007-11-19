@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EcuacionesLib
 {
-    interface IPolinomio
+    public interface IPolinomio:ICloneable
     {
         /// <summary>
         /// Inserta un término en el polinomio
