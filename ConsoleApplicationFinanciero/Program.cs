@@ -23,7 +23,12 @@ namespace ConsoleApplicationFinanciero
             p1.Insertar(t4);
             p1.Insertar(t5);
             //p2.Insertar(t3);
-            System.Console.WriteLine(EcuacionesLib.Polinomio.Newton(2, 3, p1));
+            double raiz = EcuacionesLib.Polinomio.Newton(2, 3, p1);
+            System.Console.WriteLine(raiz);
+            
+            System.Console.WriteLine(p1.Resolver(raiz));
+            System.Console.WriteLine(p1);
+
 
             System.Console.ReadLine();
         }

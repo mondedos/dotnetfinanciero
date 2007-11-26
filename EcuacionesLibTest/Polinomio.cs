@@ -79,7 +79,7 @@ namespace EcuacionesLibTest.Unitarias
             p2 = (IPolinomio)p1.Clone();
             p2.Derivar();
 
-            Assert.IsTrue(EcuacionesLib.Polinomio.Newton(2,3,p1)==2.7320508075688772);
+            Assert.IsTrue((int)p1.Resolver(EcuacionesLib.Polinomio.Newton(2,3,p1))==0);
         }
     }
 }
