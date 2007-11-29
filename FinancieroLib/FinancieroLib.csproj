@@ -4,7 +4,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>3975dd3e-edd6-4a1a-b465-5c748f8940f8</ProjectGuid>
+    <ProjectGuid>{3F31E9CC-4F42-4079-A18E-83A3CFFDFB85}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinancieroLib</RootNamespace>
@@ -33,8 +33,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="IValorActualNeto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValorActualNeto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EcuacionesLib\EcuacionesLib.csproj">
+      <Project>{D4D1A14B-4F8B-486F-B7B8-EDCE357521B5}</Project>
+      <Name>EcuacionesLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -41,6 +41,10 @@
       <Project>{D4D1A14B-4F8B-486F-B7B8-EDCE357521B5}</Project>
       <Name>EcuacionesLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FinancieroLib\FinancieroLib.csproj">
+      <Project>{3F31E9CC-4F42-4079-A18E-83A3CFFDFB85}</Project>
+      <Name>FinancieroLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

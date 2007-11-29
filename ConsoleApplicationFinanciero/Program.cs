@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using EcuacionesLib;
+using FinancieroLib;
 
 namespace ConsoleApplicationFinanciero
 {
@@ -9,25 +10,19 @@ namespace ConsoleApplicationFinanciero
     {
         static void Main(string[] args)
         {
-                        Termino t1 = new Termino(1, 4);
-            Termino t2 = new Termino(-1, 3);
-            Termino t3 = new Termino(-3, 2);
-            Termino t4 = new Termino(-4, 1);
-            Termino t5 = new Termino(-2, 0);
+            IValorActualNeto van = new VAN();
 
-            IPolinomio p1 = new EcuacionesLib.Polinomio();
-            p1.Insertar(t1);
-            p1.Insertar(t2);
-            p1.Insertar(t3);
+            van.Inversion = 2000000;
 
-            p1.Insertar(t4);
-            p1.Insertar(t5);
-            //p2.Insertar(t3);
-            double raiz = EcuacionesLib.Polinomio.Newton(2, 3, p1);
-            System.Console.WriteLine(raiz);
-            
-            System.Console.WriteLine(p1.Resolver(raiz));
-            System.Console.WriteLine(p1);
+            for (int i = 0; i < 3; i++)
+            {
+                van.Pagos.Add(320000);
+            }
+            van.Pagos.Add(2320000);
+
+            van.ResolverInterés();
+
+            double rent = van.Rentabilidad;
 
 
             System.Console.ReadLine();

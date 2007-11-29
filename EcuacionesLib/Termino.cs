@@ -52,12 +52,12 @@ namespace EcuacionesLib
 
         public override bool Equals(object obj)
         {
-            try
+            if(obj!=null&obj is Termino)
             {
                 Termino t = (Termino)obj;
                 return _exponente == t._exponente && _multiplicando == t._multiplicando;
             }
-            catch (FormatException)
+            else
             {
                 return false;
             }
