@@ -10,21 +10,11 @@ namespace ConsoleApplicationFinanciero
     {
         static void Main(string[] args)
         {
-            IValorActualNeto van = new VAN();
-
-            van.Inversion = 2000000;
-
-            for (int i = 0; i < 3; i++)
-            {
-                van.Pagos.Add(320000);
-            }
-            van.Pagos.Add(2320000);
-
-            van.ResolverInterés();
-
-            double rent = van.Rentabilidad;
-
-
+            
+            
+            System.Console.WriteLine(TAE.calcularTAEToString(0.115,12));
+            System.Console.WriteLine(TAE.calcularInteres(0.0748, 12));
+            System.Console.WriteLine(Pagos.mensualidad(17000.0,11.5,5));
             System.Console.ReadLine();
         }
     }

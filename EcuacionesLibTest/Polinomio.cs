@@ -9,15 +9,15 @@ namespace EcuacionesLibTest.Unitarias
     [TestFixture]
     public class PolinomioTest
     {
-                [TestFixtureSetUp]
+        [TestFixtureSetUp]
         public void SettingUp()
         {
-            
+
         }
         [TestFixtureTearDown]
         public void TearDowning()
         {
-            
+
         }
         [Test]
         public void TestEquals()
@@ -32,7 +32,7 @@ namespace EcuacionesLibTest.Unitarias
             p1.Insertar(t2);
             p1.Insertar(t3);
 
-                        p2.Insertar(t1);
+            p2.Insertar(t1);
             p2.Insertar(t2);
             p2.Insertar(t3);
 
@@ -79,7 +79,7 @@ namespace EcuacionesLibTest.Unitarias
             p2 = (IPolinomio)p1.Clone();
             p2.Derivar();
 
-            Assert.IsTrue((int)p1.Resolver(EcuacionesLib.Polinomio.Newton(2,3,p1))==0);
+            Assert.IsTrue((int)p1.Resolver(EcuacionesLib.Polinomio.Newton(2, 3, p1)) == 0);
         }
     }
 }

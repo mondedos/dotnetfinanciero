@@ -34,7 +34,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IValorActualNeto.cs" />
+    <Compile Include="Pagos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TAE.cs" />
     <Compile Include="ValorActualNeto.cs" />
   </ItemGroup>
   <ItemGroup>

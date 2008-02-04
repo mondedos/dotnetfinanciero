@@ -99,7 +99,6 @@ namespace FinancieroLib
             }
             set
             {
-                _interesValido = true;
                 _i = value;
             }
         }
@@ -108,17 +107,13 @@ namespace FinancieroLib
         {
             get
             {
-                if (_interesValido)
-                    return _r;
-                else
-                {
+                
                     double sol = (_XunoMasK / (1 + _i)) - 1;
                     return sol;
-                }
+                
             }
             set
             {
-                _interesValido = true;
                 _r = value;
             }
         }
