@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using EcuacionesLib;
 using FinancieroLib;
+using FinancieroLib.Coches;
 
 namespace ConsoleApplicationFinanciero
 {
@@ -10,11 +11,36 @@ namespace ConsoleApplicationFinanciero
     {
         static void Main(string[] args)
         {
-            
-            
-            System.Console.WriteLine(TAE.calcularTAEToString(0.115,12));
-            System.Console.WriteLine(TAE.calcularInteres(0.0748, 12));
-            System.Console.WriteLine(Pagos.mensualidad(17000.0,11.5,5));
+            Gasolinera punto = Gasolinera.GetInstance();
+            punto.PrecioGasolina = 1.08;
+            punto.PrecioDiesel = 0.99;
+
+            Gasolina fiesta13 = new Gasolina();
+            fiesta13.Caballos = 70;
+            fiesta13.Consumo = 8.1;
+            fiesta13.Precio = 13030.0;
+
+            Diesel fiesta14 = new Diesel();
+            fiesta14.Caballos = 68;
+            fiesta14.Consumo = 5.8;
+            fiesta14.Precio = 13635.0;
+
+
+
+            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta13, fiesta14)); 
+            Gasolina fiesta16 = new Gasolina();
+            fiesta16.Caballos = 100;
+            fiesta16.Consumo = 8.8;
+            fiesta16.Precio = 14635.0;
+
+            Diesel fiesta16g = new Diesel();
+            fiesta16g.Caballos = 90;
+            fiesta16g.Consumo = 5.2;
+            fiesta16g.Precio = 14935.0;
+
+
+
+            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta16, fiesta16g));
             System.Console.ReadLine();
         }
     }

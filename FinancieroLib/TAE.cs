@@ -11,29 +11,33 @@ namespace FinancieroLib
     /// </summary>
     public class TAE
     {
+        public static bool Comprobar(double tae, double tin, double comisionApertura, double estudio, double cancelacionAnticipada)
+        {
+            return tae == (tin + comisionApertura + estudio + cancelacionAnticipada);
+        }
         /// <summary>
         /// Realiza el calculo del TAE
         /// </summary>
-        /// <param name="interesBanco">interes que exige el banco</param>
+        /// <param name="TIN">interes que exige el banco</param>
         /// <param name="mesesAlAño">frecuencia de pagos al año</param>
         /// <returns></returns>
-        public static double calcularTAE(double interesBanco, int mesesAlAño)
+        public static double calcularTAE(double TIN, int mesesAlAño)
         {
-            return Math.Pow((1 + (interesBanco / mesesAlAño)), mesesAlAño) - 1;
+            return Math.Pow((1 + (TIN / mesesAlAño)), mesesAlAño) - 1;
         }
         /// <summary>
         /// Desglosa el cálculo del tae
         /// </summary>
-        /// <param name="interesBanco"></param>
+        /// <param name="TIN"></param>
         /// <param name="mesesAlAño"></param>
         /// <returns></returns>
-        public static string calcularTAEToString(double interesBanco, int mesesAlAño)
+        public static string calcularTAEToString(double TIN, int mesesAlAño)
         {
             System.Text.StringBuilder cad = new StringBuilder();
 
-            cad.Append("(1+(interes/frecuencia))^frecuencia-1)=TAE\r\n");
+            cad.Append("(1+(tin/frecuencia))^frecuencia-1)=TAE\r\n");
             cad.Append("(1+(");
-            cad.Append(interesBanco);
+            cad.Append(TIN);
             cad.Append("/");
             cad.Append(mesesAlAño);
             cad.Append("))^");

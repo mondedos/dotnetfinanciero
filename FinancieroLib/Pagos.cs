@@ -33,7 +33,7 @@ namespace FinancieroLib
         /// <returns>beneficio que se lleva el banco</returns>
         public static double beneficio(double prestamo, double intereses, int años)
         {
-            double mensualidad = mensualidad(prestamo, intereses, años);
+            double mensualidad = Pagos.mensualidad(prestamo, intereses, años);
 
             return años * 12 * mensualidad - prestamo;
         }
