@@ -11,6 +11,11 @@ namespace ConsoleApplicationFinanciero
     {
         static void Main(string[] args)
         {
+            Financiacion pago = new Financiacion();
+            pago.Años = 5;
+            pago.Entrada = 3000;
+            pago.Interes = 11.5;
+
             Gasolinera punto = Gasolinera.GetInstance();
             punto.PrecioGasolina = 1.08;
             punto.PrecioDiesel = 0.99;
@@ -27,7 +32,7 @@ namespace ConsoleApplicationFinanciero
 
 
 
-            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta13, fiesta14)); 
+            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta13, fiesta14,pago)); 
             Gasolina fiesta16 = new Gasolina();
             fiesta16.Caballos = 100;
             fiesta16.Consumo = 8.8;
@@ -40,7 +45,8 @@ namespace ConsoleApplicationFinanciero
 
 
 
-            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta16, fiesta16g));
+            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta16, fiesta16g,pago));
+
             System.Console.ReadLine();
         }
     }
