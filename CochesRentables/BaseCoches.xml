@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Coches xmlns="http://tempuri.org/CochesFinancierosLib.xsd">
+  <Marca nombre="Ford">
+    <Modelo Nombre="Fiesta">
+      <Gasoina>
+        <Version nombre="1.3 Duratec" consumo="8.1" precio="13030.0" cvs="70" ccc="1299" />
+        <Version nombre="1.4 Duratec" consumo="8.3" cvs="80" ccc="1388"/>
+        <Version nombre="1.6 Duratec" consumo="8.8" cvs="100" precio="14635.0" ccc="1596"/>
+        <Version nombre="2.0 Duratec" consumo="10.4" cvs="190" ccc="1999"/>
+      </Gasoina>
+      <Diesel>
+        <Version nombre="1.4 Duratoc" consumo="5.8" cvs="68" precio="13635.0" ccc="1399"/>
+        <Version nombre="1.4 Duratoc EST" consumo="5.9" cvs="68"  ccc="1399"/>
+        <Version nombre="1.6 Duratoc" consumo="5.2" cvs="90" precio="14935.0" ccc="1560"/>
+      </Diesel>
+    </Modelo>
+  </Marca>
+</Coches>
