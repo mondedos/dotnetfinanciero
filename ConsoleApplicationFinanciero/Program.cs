@@ -4,6 +4,7 @@ using System.Text;
 using EcuacionesLib;
 using FinancieroLib;
 using FinancieroLib.Coches;
+using System.Xml;
 
 namespace ConsoleApplicationFinanciero
 {
@@ -32,7 +33,7 @@ namespace ConsoleApplicationFinanciero
 
 
 
-            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta13, fiesta14,pago)); 
+            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta13, fiesta14, pago));
             Gasolina fiesta16 = new Gasolina();
             fiesta16.Caballos = 100;
             fiesta16.Consumo = 8.8;
@@ -43,8 +44,33 @@ namespace ConsoleApplicationFinanciero
             fiesta16g.Consumo = 5.2;
             fiesta16g.Precio = 14935.0;
 
-            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta16, fiesta16g,pago));
+            System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta16, fiesta16g, pago));
 
+            XmlDataDocument doc = new XmlDataDocument();
+            doc.Load("../../../CochesRentables/BaseCoches.xml");
+
+            foreach (XmlNode marcas in doc.FirstChild.NextSibling.ChildNodes)
+            {
+                foreach (XmlElement modelos in marcas.ChildNodes)
+                {
+                    foreach (XmlElement motor in modelos.ChildNodes)
+                    {
+                        string versionmotor=motor.Name.ToLower();
+                        if (versionmotor.Equals("gasolina"))
+                        {
+                            foreach (XmlElement versiones in motor.ChildNodes)
+                            {
+                                Coche c = new Gasolina(versiones);
+                            }
+                        }
+                        else if(versionmotor.Equals("diesel")){
+                        }
+                        else{
+                        }
+                    }
+                }
+            }
+            XmlNodeList personas = doc.GetElementsByTagName("Gasolina");
             System.Console.ReadLine();
         }
     }

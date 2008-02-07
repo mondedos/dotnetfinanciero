@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml;
 
 namespace FinancieroLib.Coches
 {
@@ -22,7 +23,16 @@ namespace FinancieroLib.Coches
         /// Caballos fiscales
         /// </summary>
         public double CVF { get { return 0.08 * Math.Pow(_cc / 4, 0.6) * 4; } }
-
+        protected void make(XmlElement version)
+        {
+            double.TryParse(version.GetAttribute("precio"), out _precio);
+            double.TryParse(version.GetAttribute("consumo"), out _consumo);
+            int.TryParse(version.GetAttribute("cvs"), out _caballos);
+            int.TryParse(version.GetAttribute("ccc"), out _cc);
+            XmlElement modelo = (XmlElement)version.ParentNode.ParentNode;
+            _modelo = modelo.GetAttribute("Nombre") +" "+ version.GetAttribute("nombre");
+            _marca = ((XmlElement)modelo.ParentNode).GetAttribute("nombre");
+        }
         /// <summary>
         /// Obtiene la cantidad de kilómetros a partir del cual, la versión del motor diesel es mas
         /// rentable que el gasolina.
@@ -137,6 +147,11 @@ namespace FinancieroLib.Coches
 
     public class Gasolina : Coche
     {
+        public Gasolina() { }
+        public Gasolina(XmlElement coche)
+        {
+            base.make(coche);
+        }
         public override object Clone()
         {
             Coche nuevo = new Gasolina();
