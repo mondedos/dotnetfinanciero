@@ -43,8 +43,6 @@ namespace ConsoleApplicationFinanciero
             fiesta16g.Consumo = 5.2;
             fiesta16g.Precio = 14935.0;
 
-
-
             System.Console.WriteLine(Coche.ResolverObtenerKilometros(fiesta16, fiesta16g,pago));
 
             System.Console.ReadLine();
