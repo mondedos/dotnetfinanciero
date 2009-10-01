@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcuacionesLibTest", "Ecuaci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancieroLib", "FinancieroLib\FinancieroLib.csproj", "{3F31E9CC-4F42-4079-A18E-83A3CFFDFB85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CochesRentables", "CochesRentables\CochesRentables.csproj", "{DB431EEC-2FDC-4E09-9467-A7569C3E2E75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CochesRentables", "CochesRentables\CochesRentables.csproj", "{72D1B029-2634-4E33-BC43-70BF2AE809C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,10 @@ Global
 		{3F31E9CC-4F42-4079-A18E-83A3CFFDFB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F31E9CC-4F42-4079-A18E-83A3CFFDFB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F31E9CC-4F42-4079-A18E-83A3CFFDFB85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DB431EEC-2FDC-4E09-9467-A7569C3E2E75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DB431EEC-2FDC-4E09-9467-A7569C3E2E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DB431EEC-2FDC-4E09-9467-A7569C3E2E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DB431EEC-2FDC-4E09-9467-A7569C3E2E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72D1B029-2634-4E33-BC43-70BF2AE809C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72D1B029-2634-4E33-BC43-70BF2AE809C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72D1B029-2634-4E33-BC43-70BF2AE809C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72D1B029-2634-4E33-BC43-70BF2AE809C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
